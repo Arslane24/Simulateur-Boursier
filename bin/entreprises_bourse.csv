@@ -1,0 +1,98 @@
+ID,Nom,PrixDepart,Secteur,SousSecteur,Devise,Bourse,VolumeMoyen,Volatilite,Pourcentage,PrixMoyen,Capital
+AAPL,Apple,150.0,Technologie,Logiciels,USD,NASDAQ,80000000,0.25,0.0,150.0,2000000
+MSFT,Microsoft,300.0,Technologie,Logiciels,USD,NASDAQ,60000000,0.20,0.0,300.0,1800000
+NVDA,Nvidia,200.0,Technologie,Semi-conducteurs,USD,NASDAQ,50000000,0.35,0.0,200.0,500000
+AMZN,Amazon,3400.0,Technologie,Cloud,USD,NASDAQ,40000000,0.30,0.0,3400.0,1500000
+GOOGL,Google,2800.0,Technologie,Cloud,USD,NASDAQ,30000000,0.25,0.0,2800.0,1400000
+JPM,JPMorgan,160.0,Finance,Banque,USD,NYSE,20000000,0.20,0.0,160.0,400000
+GS,Goldman Sachs,400.0,Finance,Banque,USD,NYSE,15000000,0.25,0.0,400.0,150000
+V,Visa,230.0,Finance,Paiements,USD,NYSE,18000000,0.20,0.0,230.0,300000
+PFE,Pfizer,50.0,Santé,Pharmaceutique,USD,NYSE,25000000,0.20,0.0,50.0,200000
+MRNA,Moderna,200.0,Santé,Biotechnologie,USD,NASDAQ,20000000,0.35,0.0,200.0,50000
+XOM,ExxonMobil,60.0,Énergie,Pétrole,USD,NYSE,30000000,0.25,0.0,60.0,250000
+CVX,Chevron,100.0,Énergie,Pétrole,USD,NYSE,20000000,0.25,0.0,100.0,200000
+TSLA,Tesla,1000.0,Industrie,Automobile,USD,NASDAQ,50000000,0.45,0.0,1000.0,600000
+F,Ford,15.0,Industrie,Automobile,USD,NYSE,60000000,0.30,0.0,15.0,50000
+WMT,Walmart,140.0,Consommation,Distribution,USD,NYSE,25000000,0.15,0.0,140.0,400000
+TGT,Target,250.0,Consommation,Distribution,USD,NYSE,20000000,0.20,0.0,250.0,100000
+DIS,Disney,180.0,Consommation,Médias,USD,NYSE,22000000,0.25,0.0,180.0,300000
+VZ,Verizon,55.0,Télécommunications,Téléphonie,USD,NYSE,30000000,0.15,0.0,55.0,200000
+T,AT&T,30.0,Télécommunications,Téléphonie,USD,NYSE,35000000,0.20,0.0,30.0,150000
+INTC,Intel,50.0,Technologie,Semi-conducteurs,USD,NASDAQ,40000000,0.30,0.0,50.0,200000
+AMD,Advanced Micro Devices,120.0,Technologie,Semi-conducteurs,USD,NASDAQ,35000000,0.35,0.0,120.0,150000
+ORCL,Oracle,90.0,Technologie,Logiciels,USD,NYSE,20000000,0.25,0.0,90.0,250000
+CSCO,Cisco Systems,55.0,Technologie,Réseaux,USD,NASDAQ,30000000,0.20,0.0,55.0,200000
+IBM,IBM,130.0,Technologie,Logiciels,USD,NYSE,15000000,0.20,0.0,130.0,150000
+BAC,Bank of America,45.0,Finance,Banque,USD,NYSE,50000000,0.25,0.0,45.0,350000
+WFC,Wells Fargo,50.0,Finance,Banque,USD,NYSE,40000000,0.25,0.0,50.0,200000
+MA,Mastercard,360.0,Finance,Paiements,USD,NYSE,18000000,0.20,0.0,360.0,350000
+PYPL,PayPal,200.0,Finance,Paiements,USD,NASDAQ,25000000,0.30,0.0,200.0,100000
+JNJ,Johnson & Johnson,165.0,Santé,Pharmaceutique,USD,NYSE,20000000,0.15,0.0,165.0,400000
+LLY,Eli Lilly,300.0,Santé,Pharmaceutique,USD,NYSE,15000000,0.25,0.0,300.0,250000
+GILD,Gilead Sciences,70.0,Santé,Biotechnologie,USD,NASDAQ,18000000,0.30,0.0,70.0,100000
+BP,BP,30.0,Énergie,Pétrole,USD,NYSE,25000000,0.25,0.0,30.0,150000
+SLB,Schlumberger,35.0,Énergie,Services pétroliers,USD,NYSE,20000000,0.30,0.0,35.0,80000
+NEE,NextEra Energy,80.0,Énergie,Énergies renouvelables,USD,NYSE,15000000,0.20,0.0,80.0,150000
+GM,General Motors,60.0,Industrie,Automobile,USD,NYSE,30000000,0.30,0.0,60.0,100000
+CAT,Caterpillar,200.0,Industrie,Machines,USD,NYSE,12000000,0.25,0.0,200.0,80000
+BA,Boeing,220.0,Industrie,Aéronautique,USD,NYSE,15000000,0.35,0.0,220.0,120000
+KO,Coca-Cola,60.0,Consommation,Boissons,USD,NYSE,40000000,0.15,0.0,60.0,250000
+PEP,PepsiCo,170.0,Consommation,Boissons,USD,NYSE,20000000,0.15,0.0,170.0,200000
+NKE,Nike,130.0,Consommation,Habillement,USD,NYSE,18000000,0.25,0.0,130.0,150000
+HD,Home Depot,320.0,Consommation,Distribution,USD,NYSE,15000000,0.20,0.0,320.0,200000
+CMCSA,Comcast,50.0,Consommation,Médias,USD,NASDAQ,25000000,0.20,0.0,50.0,150000
+TMUS,T-Mobile,140.0,Télécommunications,Téléphonie,USD,NASDAQ,20000000,0.25,0.0,140.0,100000
+VNQ,Vanguard Real Estate,90.0,Immobilier,REIT,USD,NYSE,10000000,0.20,0.0,90.0,80000
+PLD,Prologis,120.0,Immobilier,REIT,USD,NYSE,8000000,0.25,0.0,120.0,60000
+BHP,BHP Group,60.0,Matériaux,Mines,USD,NYSE,15000000,0.30,0.0,60.0,100000
+RIO,Rio Tinto,70.0,Matériaux,Mines,USD,NYSE,12000000,0.30,0.0,70.0,80000
+UNP,Union Pacific,220.0,Transport,Ferroviaire,USD,NYSE,10000000,0.20,0.0,220.0,100000
+UPS,United Parcel Service,180.0,Transport,Logistique,USD,NYSE,15000000,0.25,0.0,180.0,120000
+MMM,3M,190.0,Industrie,Manufacture,USD,NYSE,12000000,0.20,0.0,190.0,100000
+CRM,Salesforce,250.0,Technologie,Logiciels,USD,NYSE,20000000,0.30,0.0,250.0,300000
+ADBE,Adobe,500.0,Technologie,Logiciels,USD,NASDAQ,15000000,0.25,0.0,500.0,250000
+NFLX,Netflix,550.0,Consommation,Médias,USD,NASDAQ,20000000,0.35,0.0,550.0,200000
+UBER,Uber,45.0,Transport,Mobilité,USD,NYSE,30000000,0.40,0.0,45.0,80000
+LYFT,Lyft,30.0,Transport,Mobilité,USD,NASDAQ,25000000,0.45,0.0,30.0,50000
+SPOT,Spotify,200.0,Consommation,Médias,USD,NYSE,15000000,0.30,0.0,200.0,60000
+SQ,Square,220.0,Finance,FinTech,USD,NYSE,18000000,0.35,0.0,220.0,70000
+AXP,American Express,180.0,Finance,Paiements,USD,NYSE,15000000,0.25,0.0,180.0,100000
+LMT,Lockheed Martin,400.0,Industrie,Aérospatiale,USD,NYSE,10000000,0.20,0.0,400.0,120000
+RTX,Raytheon Technologies,90.0,Industrie,Aérospatiale,USD,NYSE,12000000,0.25,0.0,90.0,100000
+ABBV,AbbVie,120.0,Santé,Pharmaceutique,USD,NYSE,18000000,0.20,0.0,120.0,150000
+BMY,Bristol-Myers Squibb,65.0,Santé,Pharmaceutique,USD,NYSE,20000000,0.25,0.0,65.0,120000
+REGN,Regeneron,600.0,Santé,Biotechnologie,USD,NASDAQ,8000000,0.30,0.0,600.0,80000
+VRTX,Vertex Pharmaceuticals,250.0,Santé,Biotechnologie,USD,NASDAQ,10000000,0.30,0.0,250.0,60000
+EDU,New Oriental Education,40.0,Éducation,Éducation en ligne,CNY,HKEX,15000000,0.35,0.0,40.0,50000
+TAL,TAL Education,30.0,Éducation,Éducation en ligne,CNY,HKEX,20000000,0.40,0.0,30.0,40000
+TRIP,TripAdvisor,25.0,Tourisme,Plateforme voyage,USD,NASDAQ,25000000,0.35,0.0,25.0,30000
+EXPE,Expedia,150.0,Tourisme,Plateforme voyage,USD,NASDAQ,18000000,0.30,0.0,150.0,50000
+BKNG,Booking Holdings,2500.0,Tourisme,Plateforme voyage,USD,NASDAQ,5000000,0.25,0.0,2500.0,80000
+ADM,Archer-Daniels-Midland,60.0,Agriculture,Agroalimentaire,USD,NYSE,15000000,0.20,0.0,60.0,60000
+CTVA,Corteva,45.0,Agriculture,Agrochimie,USD,NYSE,12000000,0.25,0.0,45.0,50000
+EA,Electronic Arts,130.0,Jeux vidéo,Édition jeux,USD,NASDAQ,15000000,0.30,0.0,130.0,60000
+ATVI,Activision Blizzard,80.0,Jeux vidéo,Édition jeux,USD,NASDAQ,20000000,0.30,0.0,80.0,70000
+TTWO,Take-Two Interactive,150.0,Jeux vidéo,Édition jeux,USD,NASDAQ,12000000,0.35,0.0,150.0,50000
+AXA,AXA,30.0,Assurance,Assurance-vie,EUR,Euronext,25000000,0.20,0.0,30.0,80000
+ALV,Allianz,200.0,Assurance,Assurance-vie,EUR,Euronext,15000000,0.20,0.0,200.0,100000
+LVMH,LVMH,700.0,Biens de luxe,Mode,EUR,Euronext,8000000,0.25,0.0,700.0,150000
+KER,Kering,600.0,Biens de luxe,Mode,EUR,Euronext,6000000,0.30,0.0,600.0,80000
+RMS,Hermès,1800.0,Biens de luxe,Mode,EUR,Euronext,4000000,0.25,0.0,1800.0,100000
+SPCE,Virgin Galactic,20.0,Aérospatiale,Tourisme spatial,USD,NYSE,30000000,0.50,0.0,20.0,30000
+BLBD,Blue Bird,25.0,Aérospatiale,Transports spatiaux,USD,NASDAQ,20000000,0.45,0.0,25.0,20000
+ENPH,Enphase Energy,150.0,Environnement,Énergies vertes,USD,NASDAQ,15000000,0.35,0.0,150.0,50000
+FSLR,First Solar,100.0,Environnement,Énergies vertes,USD,NASDAQ,12000000,0.40,0.0,100.0,40000
+WM,Waste Management,150.0,Environnement,Recyclage,USD,NYSE,10000000,0.20,0.0,150.0,60000
+PLTR,Palantir,25.0,Technologie,IA,USD,NYSE,40000000,0.40,0.0,25.0,80000
+CRWD,CrowdStrike,200.0,Technologie,Cybersécurité,USD,NASDAQ,20000000,0.35,0.0,200.0,60000
+ZS,Zscaler,180.0,Technologie,Cybersécurité,USD,NASDAQ,15000000,0.35,0.0,180.0,50000
+OKTA,Okta,120.0,Technologie,Cybersécurité,USD,NASDAQ,18000000,0.40,0.0,120.0,40000
+MDB,MongoDB,400.0,Technologie,Bases de données,USD,NASDAQ,10000000,0.35,0.0,400.0,50000
+SNOW,Snowflake,300.0,Technologie,Bases de données,USD,NYSE,12000000,0.40,0.0,300.0,60000
+MDT,Medtronic,100.0,Santé,Dispositifs médicaux,USD,NYSE,20000000,0.20,0.0,100.0,150000
+ISRG,Intuitive Surgical,300.0,Santé,Dispositifs médicaux,USD,NASDAQ,8000000,0.25,0.0,300.0,80000
+DOCU,DocuSign,200.0,Technologie,Logiciels,USD,NASDAQ,15000000,0.35,0.0,200.0,50000
+SHOP,Shopify,1200.0,Consommation,Commerce électronique,CAD,NYSE,10000000,0.40,0.0,1200.0,80000
+ETSY,Etsy,150.0,Consommation,Commerce électronique,USD,NASDAQ,12000000,0.35,0.0,150.0,30000
+MCD,McDonald's,250.0,Consommation,Alimentation,USD,NYSE,20000000,0.15,0.0,250.0,150000
+SBUX,Starbucks,100.0,Consommation,Alimentation,USD,NASDAQ,25000000,0.20,0.0,100.0,100000

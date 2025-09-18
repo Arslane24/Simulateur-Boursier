@@ -1,0 +1,281 @@
+\newpage
+\section{Conception et mise en œuvre}
+\label{sec:impl}
+
+\subsection{Architecture globale du logiciel}
+
+
+\begin{itemize}
+
+
+    \item \textbf{Package data :} Contient les classes de base représentant les entités du domaine (par exemple, Entreprise,
+Action, Obligation, Portfeuille). Ces classes encapsulent les données essentielles et leurs relations,
+servant de fondation pour les autres couches du logiciel.
+
+
+\item \textbf{Package gestion :} Regroupe les classes responsables de la logique métier, telles que la mise à jour des prix
+des actifs (Bourse), la gestion des transactions (GestionPortfeuille), et la génération d'événements
+influençant le marché (Actualite). Ce package agit comme le moteur du simulateur, en orchestrant les calculs
+et les interactions entre les entités.
+
+
+\item \textbf{Package gui :} Fournit l'interface graphique (IHM) avec des composants Swing pour afficher les données,
+interagir avec l'utilisateur, et visualiser les résultats sous forme de tableaux et de graphiques (via JFreeChart). Ce
+package assure une expérience utilisateur fluide et intuitive.
+
+
+\item \textbf{Package test :} Contient la classe Test qui lance l'application en instanciant la fenêtre principale.
+\end{itemize}
+
+
+
+
+
+%Un exemple pour insérer et référencer une figure.
+\paragraph{} En résumé dans la figure \ref{fig:architecture} :
+\begin{enumerate}
+    \item "test" initialise l’application.
+
+    \item "gui" communique avec gestion pour afficher et interagir avec la logique métier.
+
+    \item "gestion" manipule les données de chez "data" (actions, entreprises, événements, portefeuille).
+\end{enumerate}
+
+%\begin{figure}
+%\centering
+%\includegraphics[width=3.5cm, height=2cm]{images/programmer.png}
+%\caption{Un programmeur occupé}
+%\label{fig:modele}
+%\end{figure}
+
+\fig{images/archiglobale.png}{8cm}{7cm}{Schéma de l'architecture globale}{architecture}
+
+\paragraph{}L'architecture suit une approche orientée objet, avec une séparation claire entre les couches de données, de traitement et de présentation. Les fichiers CSV (\texttt{entreprises\_bourse.csv} et \texttt{events.csv}) permettent une extensibilité des données, tandis que l'utilisation de collections Java (comme \texttt{HashMap} et \texttt{ArrayList}) garantit une gestion efficace des entités dynamiques.
+
+
+\paragraph{}Le flux de données commence par le chargement des entreprises et des événements depuis les fichiers CSV, suivi par des mises à jour périodiques des prix et des événements via la classe \texttt{Bourse}. L'utilisateur interagit avec le système à travers l'IHM, qui affiche les informations en temps réel et permet d'effectuer des transactions.
+
+\subsection{Classes de données}
+
+\paragraph{} Le package data définit les entités fondamentales du simulateur, chacune encapsulant des attributs et des
+comportements spécifiques. Voici un aperçu des principales classes de données (Nous ometterons volontairement de noter les getters/setters ):
+
+\fig{images/data.png}{16cm}{11cm}{Package "data"}{data}
+
+\subsection{IHM Graphique}
+
+\paragraph{ Conception et mise en œuvre de l'IHM graphique de votre projet: }
+
+
+L'interface graphique du simulateur a été conçue pour garantir une expérience utilisateur fluide, en s'appuyant sur une structure claire et modulaire.
+
+
+L'application repose sur une \textbf{fenêtre principale} qui regroupe l'ensemble des fonctionnalités nécessaires à la gestion d'un portefeuille boursier.  
+Elle est organisée autour de plusieurs éléments majeurs :
+
+\begin{itemize}
+    \item \textbf{Panneaux d'informations (en haut)} : affichage du solde disponible, du montant investi, du bénéfice/perte et de la santé globale du portefeuille.
+    \item \textbf{Barre d'onglets (JTabbedPane)} : navigation entre trois vues principales :
+    \begin{itemize}
+        \item \textbf{Liste des Actifs} : accès aux actions et obligations disponibles sur le marché.
+        \item \textbf{Mon Portefeuille} : suivi des actifs détenus et des performances financières.
+        \item \textbf{Graphiques} : visualisation des tendances de marché par entreprise et par secteur.
+    \end{itemize}
+    \item \textbf{Zone de recherche et de filtres} : située sous les onglets, permettant de filtrer les actifs par secteur ou par événement.
+    \item \textbf{Panneau des événements} : affichage des événements économiques impactant le marché.
+    \item \textbf{Panneau de contrôle (en bas)} : boutons pour avancer le temps dans la simulation ("Tour suivant"), activer la lecture automatique ("Lecture Auto"), ou créer une nouvelle entreprise.
+\end{itemize}
+
+Toutes les informations sont rafraîchies en temps réel pour refléter l'évolution dynamique du marché simulé.
+
+\fig{images/ihm1.png}{12cm}{9cm}{IHM de la fenêtre principale}{ihm}
+
+La figure \ref{fig:ihm} illustre l'organisation générale de l'interface :  
+la séparation claire entre les différentes zones fonctionnelles assure une navigation intuitive et une bonne lisibilité des données pour l'utilisateur.
+
+\subsection{Conception des traitements (processus)}
+\paragraph{}Les processus du simulateur sont gérés par le package gestion, qui implémente la logique métier pour la simulation du
+marché, la gestion des portefeuilles, et la génération d'événements.
+
+Voici les principaux processus :
+
+\paragraph{ Chargement des données :}(Bourse.chargerEntreprises et Actualite.genererlistevenements) 
+
+\begin{enumerate}
+    \item \textbf{Description} : Au démarrage, la classe \texttt{Bourse} lit le fichier \texttt{entreprises\_bourse.csv} pour créer des instances de \texttt{Entreprise} (jusqu'à 25 entreprises sélectionnées aléatoirement). La classe \texttt{Actualite} lit \texttt{events.csv} pour générer des événements.
+    
+    \item \textbf{Mécanisme} : Utilisation de \texttt{BufferedReader} pour lire les fichiers CSV. Parsing des lignes en objets \texttt{Entreprise} et \texttt{Evenement} avec validation des données.
+    
+    \item \textbf{Impact} : Permet une initialisation flexible du marché avec des données externes.
+\end{enumerate}
+
+\paragraph{Mise à Jour du Marché :} (Bourse.Miseajour) 
+
+\begin{enumerate}
+    \item \textbf{Description} : Met à jour les prix des actions à chaque tour en fonction de plusieurs facteurs :
+    \begin{itemize}
+        \item \textbf{Événements} : Impact des événements actifs (via \texttt{Actualite.Miseajour}) sur les secteurs et sous-secteurs.
+        \item \textbf{Tendance macroéconomique} : Variation aléatoire globale (basée sur une distribution normale).
+        \item \textbf{Volatilité et momentum} : Calculs basés sur les attributs \texttt{volatilite} et \texttt{pourcentage} des entreprises.
+        \item \textbf{Retour à la moyenne} : Ajustement des prix pour éviter des écarts extrêmes.
+    \end{itemize}
+    
+    \item \textbf{Mécanisme} :
+    \begin{itemize}
+        \item Calcul d'un nouveau prix pour chaque entreprise en combinant un terme de dérive (\emph{drift}), un terme stochastique et un facteur de retour à la moyenne.
+        \item Mise à jour des attributs \texttt{prixDepart}, \texttt{pourcentage}, \texttt{prixMoyen}, et \texttt{capital}.
+        \item Lissage des variations extrêmes (supérieures à 8\%) pour plus de réalisme.
+    \end{itemize}
+    
+    \item \textbf{Impact} : Simule un marché dynamique influencé par des facteurs internes et externes.
+\end{enumerate}
+
+\paragraph{}Le code qui permet celà : 
+\begin{algorithm}
+\caption{Mise à jour du prix d'une entreprise}
+\label{alg:update_price}
+\begin{algorithmic}[1]
+\STATE Calculer $muMomentum \gets$ entreprise.calculerMomentum()
+\STATE Calculer $mu \gets 0.25 \times muSecteur + 0.35 \times muEvenement + 0.15 \times muMomentum + 0.25 \times tendanceMacro$
+\STATE Calculer $volatilite \gets volatiliteBase + volatiliteEvenement \times 0.8$
+\STATE Calculer $termeDrift \gets (mu - \frac{volatilite^2}{2}) \times \Delta t$
+\STATE Calculer $secteurEffect \gets$ secteurShock[secteur] (par défaut 0.0)
+\STATE Calculer $termeStochastique \gets (0.65 \times volatilite \times \sqrt{\Delta t} \times \mathcal{N}(0,1) + 0.35 \times secteurEffect) \times 0.85$
+\STATE Calculer $prixMoyen \gets$ entreprise.getPrixMoyen()
+\STATE Calculer $meanReversion \gets 0.03 \times \ln\left(\frac{prixMoyen}{prixInitial}\right) \times \Delta t$
+\STATE Calculer $nouveauPrix \gets prixInitial \times \exp(termeDrift + termeStochastique + meanReversion)$
+\STATE Calculer $variationPourcentage \gets \frac{(nouveauPrix - prixInitial)}{prixInitial} \times 100$
+\IF{$|\text{variationPourcentage}| > 8$}
+    \STATE Calculer $facteurLissage \gets \frac{8}{|\text{variationPourcentage}|}$
+    \STATE Mettre à jour $nouveauPrix \gets prixInitial \times (1 + \text{sign}(variationPourcentage) \times 0.08 \times facteurLissage)$
+\ENDIF
+\STATE entreprise.setPrixDepart(nouveauPrix)
+\STATE entreprise.setPourcentage($\frac{(nouveauPrix - prixInitial)}{prixInitial} \times 100$)
+\STATE entreprise.updatePrixMoyen(nouveauPrix)
+\STATE Calculer $capitalInitial \gets$ entreprise.getCapital()
+\STATE Calculer $ratioPrix \gets \frac{nouveauPrix}{prixMoyen}$
+\STATE entreprise.setCapital($capitalInitial \times ratioPrix$)
+\end{algorithmic}
+\end{algorithm}
+
+
+
+\vspace{0.5cm}
+
+\paragraph{Modèle de calcul des prix :}
+
+La mise à jour des prix des entreprises repose sur une adaptation du modèle du mouvement brownien géométrique (GBM, Geometric Brownian Motion), classiquement utilisé en finance pour modéliser l'évolution stochastique des prix d'actifs.
+
+Le prix $P(t)$ d'une entreprise à l'instant $t$ est actualisé selon la formule suivante :
+
+\[
+P(t+\Delta t) = P(t) \times \exp\left(\left(\mu - \frac{1}{2} \sigma^2\right) \Delta t + \sigma \sqrt{\Delta t} \, Z\right)
+\]
+
+où :
+\begin{itemize}
+    \item $\mu$ est le taux de drift (tendance moyenne attendue du prix),
+    \item $\sigma$ est la volatilité ajustée,
+    \item $\Delta t$ est l'intervalle de temps (ici fixé à 1 tour),
+    \item $Z$ est une variable aléatoire suivant une loi normale $\mathcal{N}(0,1)$.
+\end{itemize}
+
+Dans notre projet, ce modèle a été enrichi et adapté pour mieux correspondre au contexte d'une simulation ludique :
+
+\begin{itemize}
+    \item \textbf{Effets d'événements économiques} : des chocs sectoriels ou macroéconomiques, issus des événements simulés, modifient localement la valeur du drift $\mu$ et de la volatilité $\sigma$.
+    \item \textbf{Retour à la moyenne (Mean Reversion)} : une force de rappel est appliquée pour empêcher des écarts de prix trop extrêmes, favorisant une stabilité réaliste autour du prix moyen historique de l'entreprise.
+    \item \textbf{Lissage des fortes variations} : si la variation instantanée d'un prix dépasse 8\% en un seul tour, un facteur de correction est appliqué pour adoucir le mouvement et conserver la plausibilité du marché.
+\end{itemize}
+
+Ainsi, l'évolution d'un prix au sein du simulateur est déterminée par une combinaison de :
+
+\[
+P(t+\Delta t) = P(t) \times \exp\left( \text{Terme de drift} + \text{Terme stochastique} + \text{Retour à la moyenne} \right)
+\]
+
+Cette approche hybride permet de conserver un réalisme suffisant tout en introduisant des dynamiques de marché amusantes et variées pour l'utilisateur.
+
+
+
+
+\paragraph{Gestion des Événements :}(Actualite.Miseajour) 
+\begin{enumerate}
+    \item \textbf{Description} : Gère le cycle de vie des événements, en réduisant leur durée à chaque tour et en générant de nouveaux événements lorsque les anciens expirent.
+
+    \item \textbf{Mécanisme} :
+    \begin{itemize}
+        \item Décrémentation de la durée des événements actifs.
+        \item Suppression des événements dont la durée atteint zéro.
+        \item Génération d'un nouvel événement (favorisant les événements positifs avec une probabilité de 60\%) à partir de \texttt{events.csv}.
+        \item Ajout de notifications pour informer l'utilisateur des nouveaux événements.
+    \end{itemize}
+    
+    \item \textbf{Impact} : Crée une dynamique de marché en introduisant des perturbations périodiques.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\paragraph{Gestion des Transactions} (GestionPortfeuille)
+
+\begin{enumerate}
+    \item \textbf{Description} : Gère les opérations d'achat et de vente d'actions et d'obligations.
+    
+    \item \textbf{Mécanisme} :
+    \begin{itemize}
+        \item Achat : Vérification du solde disponible, ajout de l'actif au portefeuille, mise à jour des soldes (\texttt{SoldeActuel}, \texttt{SoldeInvesti}) et enregistrement de la transaction.
+        \item Vente : Suppression ou réduction de la quantité d'actifs, mise à jour des soldes, et enregistrement de la transaction.
+        \item Utilisation de \texttt{JOptionPane} pour les interactions utilisateur (par exemple, saisie de la quantité).
+    \end{itemize}
+    
+    \item \textbf{Impact} : Permet à l'utilisateur de construire et de gérer un portefeuille en fonction des conditions du marché.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\paragraph{Simulation Automatique} (MainWindow.startAutoSimulation)
+
+\begin{enumerate}
+    \item \textbf{Description} : Exécute la simulation en continu avec un intervalle de 1,2 seconde par tour.
+    
+    \item \textbf{Mécanisme} :
+    \begin{itemize}
+        \item Utilisation d'un \texttt{Thread} pour appeler \texttt{nextTurn} à intervalles réguliers.
+        \item Mise à jour de tous les panneaux (\texttt{ListeActionsPanel}, \texttt{PortfeuillePanel}, \texttt{GraphiquePanel}, \texttt{EvenementsPanel}, \texttt{InfoPanel}) à chaque tour.
+        \item Possibilité de mettre en pause ou d'arrêter la simulation via des boutons.
+    \end{itemize}
+    
+    \item \textbf{Impact} : Offre une expérience immersive en simulant un marché en temps réel.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\paragraph{Visualisation des Données} (GraphiquePanel et PortfeuillePanel)
+
+\begin{enumerate}
+    \item \textbf{Description} : Affiche les données du marché et du portefeuille sous forme de graphiques.
+    
+    \item \textbf{Mécanisme} :
+    \begin{itemize}
+        \item \texttt{GraphiquePanel} : Mise à jour des graphiques linéaires (évolution des prix) et en histogramme (performance par secteur) à chaque tour.
+        \item \texttt{PortfeuillePanel} : Mise à jour du graphique en anneau pour la répartition des investissements par secteur.
+        \item Utilisation de \texttt{JFreeChart} pour une visualisation professionnelle.
+    \end{itemize}
+    
+    \item \textbf{Impact} : Aide l'utilisateur à analyser les tendances et à prendre des décisions éclairées.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+Le simulateur garantit sa robustesse grâce à des vérifications systématiques, notamment sur le solde disponible lors des achats, ainsi qu'à des mécanismes de lissage pour éviter des comportements de marché irréalistes.
+Son extensibilité est assurée par l'utilisation de fichiers CSV et la modularité des classes, facilitant l'ajout de nouvelles données.
+Enfin, la performance est maintenue grâce à l'utilisation de structures efficaces comme \texttt{HashMap}, optimisant la gestion d'un nombre modéré d’entreprises.
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,150 @@
+\newpage
+\section{Spécification du projet}
+\label{sec:specification}
+
+\paragraph{}Nous avons exposé l’objectif général du projet dans la  section \ref{sec:introduction}.
+Dans cette partie, nous détaillons la spécification fonctionnelle de notre application.
+Elle s’appuie principalement sur le cahier des charges et définit les concepts de base, les contraintes à respecter, ainsi que les principales fonctionnalités attendues.
+
+
+
+\subsection{Notions de base et contraintes du projet}
+\label{sec:spec1}
+
+\subsubsection{Fonctionnement général du logiciel}
+
+\paragraph{}Le logiciel simule un environnement boursier interactif où l’utilisateur peut gérer un
+portefeuille financier en temps réel, avec les mécanismes suivants.
+\paragraph{Initialisation de la simulation :}
+
+
+
+Le système crée un marché boursier virtuel composé de N entreprises
+configurées avec leurs caractéristiques financières : prix d'action initial, nombre
+d'actions disponibles et obligations associées (taux fixes ou variables). Les données peuvent être générées aléatoirement ou chargées depuis un fichier CSV. 
+
+L'utilisateur a la possibilité d'ajouter manuellement des entreprises en précisant
+leur secteur, taille et niveau de risque. Le module calcule automatiquement les
+indicateurs clés (volatilité, volume d'échanges) pour établir un environnement
+initial de marché réaliste et personnalisable.
+
+\paragraph{Boucle principale de simulation :}
+Notre système repose sur une boucle de traitement itérative qui pilote la
+dynamique de marché.
+
+À chaque cycle, le moteur de simulation :
+\begin{enumerate}
+    \item Génère des événements aléatoires.
+\item Recalcule l'ensemble des prix d’actions.
+\item Met à jour les portefeuilles utilisateur.
+\end{enumerate}
+
+\paragraph{Mise à jour de bourse :} Selon les évènements générés, il y aura une mise à jour de la bourse en termes de
+prix d’actions ce qui permet une évolution progressive et réaliste du marché, tout
+en gardant une trace complète des fluctuations.
+
+\paragraph{Interactions utilisateur :}L'utilisateur peut acheter ou vendre des actions et obligations à tout moment.
+Toutes les transactions sont enregistrées dans son portefeuille, avec un suivi en
+temps réel des performances et historique des opérations. Le système affiche
+l'impact des décisions sur la valeur du portefeuille et les conditions du marché.
+
+\paragraph{Visualisation des fluctuations et les indicateurs
+économiques :} Le système propose une interface interactive affichant en temps réel les
+fluctuations boursières sous forme de graphiques dynamiques (cours
+historiques, tendances sectorielles). Les principaux indicateurs financiers (P/E,
+volatilité, rendements) sont automatiquement calculés et présentés sous
+différents formats (tableaux, histogramme, diagrammes …) pour faciliter
+l'analyse comparative.
+
+Cette visualisation claire et paramétrable permet à
+l'utilisateur d'identifier rapidement les opportunités de marché et d'évaluer
+l'efficacité de ses stratégies d'investissement.
+
+
+\subsubsection{Notions et terminologies de base}
+
+\paragraph{Bourse :} La bourse est un marché organisé où s'échangent des instruments financiers,
+tels que des actions, des obligations, des devises, des matières premières, etc. Elle
+permet aux entreprises de lever des capitaux en émettant des actions ou des
+obligations, et aux investisseurs d'acheter et de vendre ces instruments. Les principales
+Bourses mondiales incluent le New York Stock Exchange (NYSE), le NASDAQ, la Bourse
+de Paris (Euronext), etc.
+
+\paragraph{Entreprise :} Une entreprise est une entité économique qui produit des biens ou des
+services dans le but de les vendre sur un marché. Elle peut être de différentes tailles
+(petite, moyenne, grande) et de différents types (privée, publique, coopérative, etc.). Pour notre projet, les
+entreprises sont cotées en Bourse, ce qui signifie qu'il est possible d'acheter des actifs de cette 
+ dite entreprise. Chaque entreprise devrait avoir un
+capital positif.
+
+\paragraph{Action :} Une action est un titre de propriété représentant une partie du capital d'une
+entreprise. Lorsqu'un investisseur achète une action, il devient actionnaire de
+l'entreprise et a droit à une partie des bénéfices (sous forme de dividendes) qui ne
+peuvent être distribués que si l'entreprise réalise des bénéfices. La valeur d'une action
+fluctue en fonction de l'offre et de la demande sur le marché boursier.
+
+\paragraph{Obligation :} Une obligation est un titre de créance émis par une entreprise, un État ou
+une autre entité pour emprunter de l'argent sur les marchés financiers. L'acheteur d'une
+obligation prête de l'argent à l'émetteur en échange d'un intérêt (le coupon) et du
+remboursement du principal à une date d'échéance prédéfinie (contrainte d’un contrat).
+Les obligations sont généralement considérées comme moins risquées que les actions.
+
+\paragraph{Achat : }L'achat en Bourse consiste à acquérir des titres financiers (actions
+ou obligations) en ayant les fonds nécessaire sur le marché
+de cette Bourse. L'acheteur devient propriétaire des titres et peut en tirer des bénéfices
+(dividendes pour les actions, coupons pour les obligations) ou espérer une plus-value
+lors de leur revente.
+
+\paragraph{Vente :} La vente en Bourse consiste à céder des titres financiers que l'on détient
+(actions ou obligations) à un autre investisseur sur le marché. L'objectif de la vente est de
+réaliser une plus-value (si le titre a pris de la valeur), en évitant de faire  une moins-value (si le titre a
+perdu de la valeur).
+
+\paragraph{Actualité : }L'actualité désigne l'ensemble des événements et informations récents ayant
+un impact sur la société, l'économie ou la politique. Dans notre contexte de la bourse, elle
+englobe les annonces économiques, les décisions politiques et les innovations
+technologiques qui influencent les marchés. Sa diffusion continue façonne les
+tendances et les comportements des acteurs économiques.
+
+
+
+
+
+
+
+
+
+\subsubsection{Contraintes et limitations connues}
+
+\paragraph{Contraintes techniques} 
+\paragraph{} Outils de développement:
+\begin{enumerate}
+\item Langage de programmation : Java
+\item IDE : Eclipse
+\item Outil de rédaction : Latex
+\end{enumerate}
+
+%Un exemple pour l'utilisation des citations bibliographiques
+\paragraph{} Nous sommes également contraints de n'utiliser que ce que Le Professeur T.Liu nous transmet dans ses supports pour les CM \cite{data}, en passant outre la documentation sur Internet.
+
+
+\subsection{Fonctionnalités attendues du projet}
+\label{sec:spec2}
+
+\paragraph{Fonctionnalités du programme :} 
+
+\begin{itemize}
+    \item Créer N entreprises avec des caractéristiques définies (capital, secteur, taille).
+    \item Générer et afficher des événements aléatoires impactant le marché.
+    \item Visualiser l'impact de ces événements sur actions, obligations et indices boursiers.
+    \item Acheter et vendre des actions sur le marché.
+    \item Acheter et vendre des obligations émises par les entreprises.
+    \item Visualiser les cours en temps réel et afficher l'évolution historique.
+    \item Recevoir des dividendes pour les actions détenues.
+    \item Gérer un portefeuille diversifié d’actifs financiers.
+    \item Suivre la performance du portefeuille en temps réel (valeur, gains/pertes, dividendes).
+    \item Consulter un historique détaillé des transactions et frais de courtage.
+\end{itemize}
+
+
+

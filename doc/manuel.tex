@@ -1,0 +1,80 @@
+\newpage
+\section{Manuel utilisateur}
+\label{sec:manuel}
+
+
+
+Cette section présente le manuel d’utilisation du simulateur de bourse.  
+Elle décrit les principales fonctionnalités disponibles à travers l’interface graphique, et explique comment naviguer et interagir avec l’application.  
+Des captures d'écran du logiciel y sont intégrées afin d'illustrer concrètement les différentes actions possibles.
+
+\subsection{Lancement de l'application}
+
+Pour lancer le simulateur, il suffit d’exécuter la classe \texttt{Test} (contenue dans le package \texttt{test}), qui instancie la fenêtre principale (\texttt{MainWindow}).  
+Au démarrage, l’interface affiche la liste des entreprises disponibles et permet à l'utilisateur de commencer immédiatement la simulation.
+
+\fig{images/lancement.png}{12cm}{8.25cm}{Fenêtre principale au lancement du simulateur}{lancement}
+
+\vspace{8.5cm}
+\subsection{Création d'entreprise depuis la fenêtre principale}
+
+Depuis la fenêtre principale, l’utilisateur a la possibilité de créer de nouvelles entreprises afin d’enrichir le marché boursier simulé.  
+Un bouton dédié ouvre une fenêtre de saisie où l'utilisateur peut définir les caractéristiques de l'entreprise : nom, secteur d'activité, capital initial, volatilité et nombre d'actions disponibles.
+
+Cette fonctionnalité permet de personnaliser l’environnement de simulation et d'observer l'impact de nouvelles entreprises sur l’évolution du marché.
+
+\figk{images/creation.png}{12cm}{8.25cm}{Création d'une entreprise depuis la fenêtre principale}{creation_entreprise}
+
+
+
+
+\vspace{0.5cm}
+\subsection{Consultation du marché}
+
+L’utilisateur peut consulter la liste des actions et obligations disponibles via l’onglet "Liste des Actions".  
+Chaque actif est présenté avec ses principales caractéristiques (nom, prix actuel, variation, secteur) comme vu sur la figure \ref{fig:lancement}.
+
+
+\vspace{0.5cm}
+\subsection{Gestion du portefeuille}
+
+Dans l’onglet "Mon Portefeuille", l’utilisateur peut suivre les actifs détenus, consulter les statistiques d’investissement (répartition par secteur) et visualiser l’historique des transactions.
+
+\figk{images/portefeuille.png}{12cm}{8.25cm}{Portefeuille utilisateur : actifs détenus et performances}{portefeuille}
+
+On peut également consulter les statistiques de notre portefeuille en cliquant sur la rubrique "Statistiques" 
+
+\figk{images/stats.png}{12cm}{8.25cm}{Portefeuille utilisateur : affichage des statistiques}{stats}
+
+
+
+\vspace{3.5cm}
+\subsection{Réaliser des transactions}
+
+Depuis la liste des actions ou directement dans le portefeuille, l'utilisateur peut acheter ou vendre des actifs.  
+Des menus contextuels simplifient les opérations (clic droit → acheter/vendre).
+
+\figk{images/transac.png}{12cm}{8.25cm}{Exemple d'achat d'une action via le menu contextuel}{transaction}
+
+\figk{images/vente_actif.png}{12cm}{8.25cm}{Vente d'un actif depuis le portefeuille}{vente_actif}
+
+
+\vspace{0.5cm}
+\subsection{Visualisation graphique}
+
+L’onglet "Graphiques" permet de suivre l'évolution des prix par entreprise et la performance par secteur sous forme de courbes et d’histogrammes dynamiques.
+
+Il est possible de filtrer l'affichage des graphiques selon un secteur spécifique en utilisant le menu déroulant prévu à cet effet.  
+Ainsi, l’utilisateur peut concentrer son analyse sur un domaine d'activité particulier, par exemple uniquement les entreprises du secteur technologique ou énergétique.
+
+\figk{images/graph.png}{12cm}{8.25cm}{Graphique de suivi de l'évolution des prix}{graphique}
+\vspace{0.5cm}
+\subsection{Simulation automatique}
+
+L’utilisateur peut activer la simulation automatique pour faire évoluer le marché sans intervention manuelle, en utilisant les boutons prévus dans l'interface de contrôle.
+
+\figk{images/portefeuille.png}{12cm}{8.25cm}{Portefeuille utilisateur : actifs détenus et performances}{portefeuille}
+\vspace{0.5cm}
+
+\paragraph{} L'objectif est de réussir a investir pour faire fructifier votre votre solde de départ. L'utilisateur est libre d'adopter différentes stratégies : investissement massif sur un seul secteur, diversification du portefeuille, ou spéculation sur les évolutions rapides des cours.  
+L'outil de simulation permet de tester et d'affiner ses décisions en temps réel, dans un environnement contrôlé.
